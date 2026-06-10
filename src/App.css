@@ -1,0 +1,9 @@
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  border: none;
+  min-height: 100svh;
+  background: linear-gradient(180deg, #fffaf3 0%, #fff 40%);
+}

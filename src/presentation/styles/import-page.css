@@ -1,0 +1,410 @@
+.import-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  text-align: left;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8b5e3c;
+}
+
+.page-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+  color: #2c1810;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 42rem;
+  color: #5c4a3d;
+}
+
+.import-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sample-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sample-row input {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #eadfce;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.backend-controls {
+  align-items: end;
+  margin-top: 1rem;
+}
+
+.backend-controls label {
+  font-weight: 600;
+  color: #2c1810;
+}
+
+.upload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 2rem;
+  border: 2px dashed #c9a87c;
+  border-radius: 16px;
+  background: #fffaf3;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.upload-zone:hover:not(.disabled) {
+  border-color: #8b5e3c;
+  background: #fff5e8;
+}
+
+.upload-zone.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.upload-zone input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 2rem;
+}
+
+.upload-zone strong {
+  color: #2c1810;
+}
+
+.upload-zone p {
+  margin: 0;
+  color: #6b5a4d;
+}
+
+.panel {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.panel-header h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  color: #2c1810;
+}
+
+.panel-header p {
+  margin: 0;
+  color: #6b5a4d;
+}
+
+.table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th,
+td {
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid #f0e5d8;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: #5c4a3d;
+  font-weight: 600;
+}
+
+.row-invalid {
+  background: #fff5f5;
+}
+
+.row-clickable {
+  cursor: pointer;
+}
+
+.row-clickable:hover {
+  background: #fff8ef;
+}
+
+.row-selected {
+  background: #fff1df;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-valid,
+.status-succeeded {
+  background: #e8f7ee;
+  color: #1f7a3f;
+}
+
+.status-invalid,
+.status-failed {
+  background: #fdecec;
+  color: #b42318;
+}
+
+.status-sending {
+  background: #eef4ff;
+  color: #2f5fd0;
+}
+
+.status-skipped {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.row-error,
+.row-detail {
+  display: block;
+  margin-top: 0.25rem;
+  color: #6b5a4d;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: #6f4e37;
+  color: #fff;
+}
+
+button.secondary {
+  background: #f3e8d8;
+  color: #2c1810;
+}
+
+.progress-bar {
+  margin-top: 1rem;
+  height: 10px;
+  border-radius: 999px;
+  background: #f3e8d8;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8b5e3c, #c9a87c);
+  transition: width 0.25s ease;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.result-card {
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.result-card span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.result-card label {
+  color: #5c4a3d;
+}
+
+.result-card.success {
+  background: #e8f7ee;
+}
+
+.result-card.skipped {
+  background: #f3f4f6;
+}
+
+.result-card.failed {
+  background: #fdecec;
+}
+
+.status-message,
+.error-message {
+  margin-top: 1rem;
+}
+
+.error-message {
+  color: #b42318;
+}
+
+.json-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.json-pane h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #2c1810;
+}
+
+.json-code-editor {
+  min-height: 300px;
+  border: 1px solid #3a322b;
+  border-radius: 10px;
+  overflow: auto;
+  background: #1f1b16;
+}
+
+.json-code-editor .json-code-textarea.editable,
+.json-code-editor .json-code-viewer {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+  min-height: 300px;
+  border: none;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  tab-size: 2;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.json-code-editor .json-code-textarea.editable {
+  resize: vertical;
+  background: #1f1b16;
+  color: #f8f4ee;
+  outline: none;
+}
+
+.json-code-editor .json-code-textarea.editable::placeholder {
+  color: #8a7f74;
+}
+
+.json-code-editor .json-code-viewer {
+  color: #f8f4ee;
+}
+
+.json-code-editor .json-code-viewer code {
+  font-family: inherit;
+}
+
+.idempotency-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: #fff8ef;
+  border: 1px solid #eadfce;
+}
+
+.idempotency-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5c4a3d;
+}
+
+.idempotency-value {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  color: #2c1810;
+  word-break: break-all;
+}
+
+.idempotency-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.idempotency-status {
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.idempotency-status.created {
+  background: #e8f7ee;
+  color: #1f7a3f;
+}
+
+.idempotency-status.replay {
+  background: #eef4ff;
+  color: #2f5fd0;
+}
+
+.result-card.replay {
+  background: #eef4ff;
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .results-grid,
+  .json-split {
+    grid-template-columns: 1fr;
+  }
+}
