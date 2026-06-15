@@ -1,81 +1,69 @@
-# Coffee Place Client
+# Coffee Shop
 
-React client for propagating end-of-day notebook payments to a central payments system.
+Monorepo for the Coffee Place assignment: React client + async/sharded Spring Boot backend.
 
-## What it does
+## What runs where
 
-1. Loads existing payments from the backend (`GET /api/v1/payments?storeId=...`)
-2. Upload a CSV notebook export
-3. Validate each payment locally before sending
-4. Inspect request/response JSON side by side for each row
-5. Send payments to `POST /api/v1/payments` one row at a time
-6. Retry safely using `Idempotency-Key`
-7. Refresh the backend preview after propagation
+| Service | Port | Role |
+|---------|------|------|
+| `frontend` | 3000 | React UI |
+| `backend` | 8081 | Async batch API (`/api/v1/payment-batches`) |
+| `remote-payments` | 8080 | Upstream payments API (`/api/v1/payments`) |
+| `postgres` | 5432 | Coordinator + 2 payment shards |
 
-## CSV format
+## Run everything with Docker
 
-```csv
-storeId,idempotencyKey,coffeeType,price,currency,loyaltyCardId
-store-london-01,order-001,LATTE,3.50,EUR,card-999
-```
-
-## Request / response JSON view
-
-Click a valid row in the import table to see:
-
-- **Request** — `POST` URL, headers (`Store-Id`, `Idempotency-Key`), and JSON body
-- **Response** — HTTP status and response body after propagation
-
-## Project structure
-
-```
-src/
-  domain/         # Payment rules and validation
-  application/    # parseImport and propagatePayments use cases
-  services/       # CSV/JSON reader, API client, retry policy
-  presentation/   # React UI, hooks, pages
-```
-
-## Run locally
-
-1. Start your backend API server:
+Prerequisites: Docker Desktop, and the upstream repo cloned as a sibling:
 
 ```bash
-# run your backend so /api/v1/payments is available on localhost:8080
+# from d_systems (or your workspace root)
+git clone https://github.com/igor-sakhankov/harbour-cloud-26.git harbour-cloud-26-main
 ```
 
-2. Start the client:
+Then from this folder:
 
 ```bash
-npm install
-npm run dev
+docker compose up --build
 ```
 
-3. Open the Vite URL (usually `http://localhost:5173`)
-4. The backend preview loads payments for `store-london-01` automatically
-5. Upload a CSV file, inspect request/response JSON, then click **Propagate**
+Open http://localhost:3000
 
-The Vite dev server proxies `/api` to `http://localhost:8080` so the browser avoids CORS issues.
+- Upload a CSV and click **Submit payments (async)** — the client posts to the coffee-shop backend, which stores rows in Postgres and processes them in the background.
+- Poll the batch status by request id (shown in the progress panel).
+- The **backend preview** panel still reads from the remote payments API on port 8080.
 
-## Idempotency
+Stop:
 
-The central API keys payments on `Store-Id` + `Idempotency-Key`:
+```bash
+docker compose down
+```
 
-- First send → `201 Created` (new payment)
-- Same key again → `200 OK` (original payment replayed, no duplicate)
+## Run without Docker
 
-In the UI:
+1. Start Postgres and create `coffee_coordinator`, `coffee_shard_0`, `coffee_shard_1` (see `backend/README.md`).
+2. Start remote payments: `cd ../harbour-cloud-26-main && ./gradlew bootRun` (port 8080).
+3. Start backend: `cd backend && ./gradlew bootRun` (port 8081).
+4. Start client: `cd client && npm install && npm run dev` (port 5173).
 
-- Every request includes `Idempotency-Key` in the JSON headers
-- **Send request** twice with the same key to see `200 OK` replay
-- **New key** generates a fresh UUID for a new payment
-- CSV rows should use stable `idempotencyKey` values per sale
+Client dev proxies:
+- `/api/v1/payment-batches` → `http://localhost:8081`
+- `/api/v1/payments` → `http://localhost:8080`
 
-## Reliability
+## Assignment checklist
 
-- Each row must include a stable `idempotencyKey`
-- Retries reuse the same key, so the API returns `200` instead of creating duplicates
-- Transient network and `5xx` errors are retried with exponential backoff
-- `400` validation errors are not retried
-- Sent payment metadata is stored in `localStorage` for local history and manual reset
+- [x] Bulk submit stored in relational DB (Postgres), returns `requestId` immediately (`202`)
+- [x] Client queries batch status by `requestId`
+- [x] Worker processes each payment asynchronously and calls remote API
+- [x] Payments table sharded across multiple Postgres databases (static hash-modulo)
+- [x] No resharding (shard count fixed in config)
+- [x] Remote repo not modified — built from a local clone only
 
+## Project layout
+
+```
+coffee_shop/
+  client/     React frontend
+  backend/    Spring Boot async + sharded backend
+  docker/     Shared Docker assets (Postgres init, remote-payments Dockerfile)
+  compose.yaml
+```

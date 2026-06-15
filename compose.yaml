@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: coffee
+      POSTGRES_PASSWORD: coffee
+      POSTGRES_DB: coffee_coordinator
+    volumes:
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U coffee -d coffee_coordinator"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+
+  remote-payments:
+    build:
+      context: ../harbour-cloud-26-main
+      dockerfile: ../coffee_shop/docker/Dockerfile.remote-payments
+    environment:
+      SPRING_DOCKER_COMPOSE_ENABLED: "false"
+    ports:
+      - "8080:8080"
+
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      remote-payments:
+        condition: service_started
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8081:8081"
+
+  frontend:
+    build:
+      context: ./client
+    depends_on:
+      backend:
+        condition: service_started
+      remote-payments:
+        condition: service_started
+    ports:
+      - "3000:80"
