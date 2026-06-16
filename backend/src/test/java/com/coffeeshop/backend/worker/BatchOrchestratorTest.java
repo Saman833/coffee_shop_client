@@ -122,6 +122,20 @@ class BatchOrchestratorTest {
     }
 
     @Test
+    void failsImmediatelyOnPermanentRemoteErrorEvenWithAttemptsRemaining() {
+        BatchItem item = newItem(0); // attempt 0, far below maxAttempts
+        when(itemRepository.leaseNextBatch(anyInt(), any(), any())).thenReturn(List.of(item));
+        when(remoteClient.registerPayment(any(), any(), any()))
+                .thenThrow(new RemotePaymentClient.PermanentRemotePaymentException("400 invalid currency"));
+
+        orchestrator.processNextChunk();
+
+        verify(itemRepository).markFailed(eq(item.itemId()), anyString(), any());
+        verify(itemRepository, never()).requeueForRetry(any(), anyString(), any());
+        verify(requestRepository).refreshAggregate(eq(item.requestId()), any());
+    }
+
+    @Test
     void returnsZeroWhenNothingLeased() {
         when(itemRepository.leaseNextBatch(anyInt(), any(), any())).thenReturn(List.of());
 

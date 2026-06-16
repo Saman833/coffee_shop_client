@@ -23,14 +23,14 @@ import com.coffeeshop.backend.payments.ShardedPaymentRepository;
 
 /**
  * Drives the per-batch async pipeline:
- * 1. Lease a chunk of items from the coordinator DB.
- * 2. For each item, persist into the correct shard, call the remote payments API, and record
- *    the outcome.
- * 3. Update the request-level counters and status after every item.
+ * 1. Lease a chunk of items from the coordinator DB (short transaction).
+ * 2. For each item, call the remote payments API and persist into the correct shard
+ *    <em>outside</em> any coordinator transaction, so a slow network call never holds a
+ *    coordinator DB connection open.
+ * 3. Record the per-item outcome and refresh request counters in a short transaction.
  * <p>
- * Each leased item is processed in its own coordinator-DB transaction so a failure on one item
- * does not invalidate work already done for siblings. Shard writes and remote calls are both
- * idempotent, so re-leasing a stuck item after a crash is safe.
+ * Remote calls (idempotency key) and shard writes (unique on store + key) are both idempotent,
+ * so re-leasing an item after a crash or expired lease is safe.
  */
 @Component
 public class BatchOrchestrator {
@@ -78,7 +78,7 @@ public class BatchOrchestrator {
         }
 
         for (BatchItem item : leased) {
-            transactionTemplate.executeWithoutResult(tx -> processItem(item));
+            processItem(item);
         }
         return leased.size();
     }
@@ -106,17 +106,22 @@ public class BatchOrchestrator {
                     remote.remotePaymentId(),
                     now));
 
-            itemRepository.markDone(item.itemId(), remote.remotePaymentId(), remote.replayed(), now);
+            transactionTemplate.executeWithoutResult(tx -> {
+                itemRepository.markDone(item.itemId(), remote.remotePaymentId(), remote.replayed(), now);
+                requestRepository.refreshAggregate(item.requestId(), now);
+            });
         } catch (Exception ex) {
             LOGGER.warn("Item {} failed on attempt {}: {}", item.itemId(), item.attemptCount(), ex.getMessage());
-            handleFailure(item, ex, now);
-        } finally {
-            requestRepository.refreshAggregate(item.requestId(), now);
+            transactionTemplate.executeWithoutResult(tx -> {
+                handleFailure(item, ex, now);
+                requestRepository.refreshAggregate(item.requestId(), now);
+            });
         }
     }
 
     private void handleFailure(BatchItem item, Exception ex, Instant now) {
-        if (item.attemptCount() >= workerProperties.maxAttempts()) {
+        boolean permanent = ex instanceof RemotePaymentClient.PermanentRemotePaymentException;
+        if (permanent || item.attemptCount() >= workerProperties.maxAttempts()) {
             itemRepository.markFailed(item.itemId(), ex.getMessage(), now);
         } else {
             itemRepository.requeueForRetry(item.itemId(), ex.getMessage(), now);
