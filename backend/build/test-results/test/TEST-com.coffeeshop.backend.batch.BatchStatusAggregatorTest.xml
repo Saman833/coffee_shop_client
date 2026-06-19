@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.coffeeshop.backend.batch.BatchStatusAggregatorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-06-16T03:46:54.460Z" hostname="SAMAN" time="0.518">
+  <properties/>
+  <testcase name="processingWhenSomeItemsStillInFlight()" classname="com.coffeeshop.backend.batch.BatchStatusAggregatorTest" time="0.444"/>
+  <testcase name="doneWhenAllItemsTerminalAndNoFailures()" classname="com.coffeeshop.backend.batch.BatchStatusAggregatorTest" time="0.007"/>
+  <testcase name="pendingWhenNothingProcessedYet()" classname="com.coffeeshop.backend.batch.BatchStatusAggregatorTest" time="0.002"/>
+  <testcase name="failedWhenEveryItemFailed()" classname="com.coffeeshop.backend.batch.BatchStatusAggregatorTest" time="0.002"/>
+  <testcase name="failedPartialWhenSomeFailedAndSomeSucceeded()" classname="com.coffeeshop.backend.batch.BatchStatusAggregatorTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
