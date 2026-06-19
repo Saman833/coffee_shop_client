@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.coffeeshop.backend.batch.PaymentBatchControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-06-16T03:46:55.123Z" hostname="SAMAN" time="31.472">
+  <properties/>
+  <testcase name="submitWithMissingFieldsReturnsProblemDetail()" classname="com.coffeeshop.backend.batch.PaymentBatchControllerTest" time="3.584"/>
+  <testcase name="getStatusReturnsNotFoundWhenMissing()" classname="com.coffeeshop.backend.batch.PaymentBatchControllerTest" time="0.266"/>
+  <testcase name="submitRejectsInvalidCurrencyAndPrice()" classname="com.coffeeshop.backend.batch.PaymentBatchControllerTest" time="0.231"/>
+  <testcase name="getStatusReturnsPayloadWhenFound()" classname="com.coffeeshop.backend.batch.PaymentBatchControllerTest" time="0.293"/>
+  <testcase name="submitReturnsAcceptedWithRequestId()" classname="com.coffeeshop.backend.batch.PaymentBatchControllerTest" time="0.169"/>
+  <system-out><![CDATA[10:46:57.108 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.coffeeshop.backend.batch.PaymentBatchControllerTest]: PaymentBatchControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:46:58.453 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.coffeeshop.backend.BackendApplication for test class com.coffeeshop.backend.batch.PaymentBatchControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.0)
+
+2026-06-16T10:47:01.928+07:00  INFO 15124 --- [coffee-shop-backend] [    Test worker] c.c.b.batch.PaymentBatchControllerTest   : Starting PaymentBatchControllerTest using Java 21.0.8 with PID 15124 (started by sahma in C:\Users\sahma\d_systems\coffee_shop\backend)
+2026-06-16T10:47:01.943+07:00  INFO 15124 --- [coffee-shop-backend] [    Test worker] c.c.b.batch.PaymentBatchControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-06-16T10:47:05.109+07:00  INFO 15124 --- [coffee-shop-backend] [    Test worker] .i.s.PathMatchingResourcePatternResolver : Skipping search for files matching pattern [**/*.class]: directory [C:\Users\sahma\d_systems\coffee_shop\backend\build\classes\java\test\com\coffeeshop\backend\config] does not exist
+2026-06-16T10:47:21.643+07:00  INFO 15124 --- [coffee-shop-backend] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-16T10:47:21.648+07:00  INFO 15124 --- [coffee-shop-backend] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-16T10:47:21.671+07:00  INFO 15124 --- [coffee-shop-backend] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2026-06-16T10:47:21.922+07:00  INFO 15124 --- [coffee-shop-backend] [    Test worker] c.c.b.batch.PaymentBatchControllerTest   : Started PaymentBatchControllerTest in 22.934 seconds (process running for 30.288)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\sahma\AppData\Local\Temp\cursor-sandbox-cache\c0419d556fdeb8ed7acf48dc5f351955\gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.15.10\e8eb255b2c378b9a6c7341e7b0e12f0a5636377\byte-buddy-agent-1.15.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

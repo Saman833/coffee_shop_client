@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.coffeeshop.backend.worker.BatchOrchestratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-06-16T03:47:26.804Z" hostname="SAMAN" time="1.619">
+  <properties/>
+  <testcase name="marksItemDoneAndPersistsToShardWhenRemoteReturnsCreated()" classname="com.coffeeshop.backend.worker.BatchOrchestratorTest" time="1.266"/>
+  <testcase name="requeuesItemBelowMaxAttemptsAndDoesNotMarkFailed()" classname="com.coffeeshop.backend.worker.BatchOrchestratorTest" time="0.058"/>
+  <testcase name="returnsZeroWhenNothingLeased()" classname="com.coffeeshop.backend.worker.BatchOrchestratorTest" time="0.031"/>
+  <testcase name="failsImmediatelyOnPermanentRemoteErrorEvenWithAttemptsRemaining()" classname="com.coffeeshop.backend.worker.BatchOrchestratorTest" time="0.071"/>
+  <testcase name="failsItemPermanentlyWhenMaxAttemptsReached()" classname="com.coffeeshop.backend.worker.BatchOrchestratorTest" time="0.072"/>
+  <testcase name="markedAsReplayedWhenRemoteReturnsTwoHundred()" classname="com.coffeeshop.backend.worker.BatchOrchestratorTest" time="0.031"/>
+  <testcase name="processesEachLeasedItemIndependently()" classname="com.coffeeshop.backend.worker.BatchOrchestratorTest" time="0.063"/>
+  <system-out><![CDATA[2026-06-16T10:47:28.105+07:00  WARN 15124 --- [coffee-shop-backend] [    Test worker] c.c.backend.worker.BatchOrchestrator     : Item 3eefcb63-8ad9-4f5f-aabd-24d30651928b failed on attempt 1: connection refused
+2026-06-16T10:47:28.223+07:00  WARN 15124 --- [coffee-shop-backend] [    Test worker] c.c.backend.worker.BatchOrchestrator     : Item d530e774-2357-44e1-a65b-783a729b5982 failed on attempt 0: 400 invalid currency
+2026-06-16T10:47:28.288+07:00  WARN 15124 --- [coffee-shop-backend] [    Test worker] c.c.backend.worker.BatchOrchestrator     : Item 9e864552-7f76-4c11-aade-ed1f51619f23 failed on attempt 3: upstream 500
+2026-06-16T10:47:28.400+07:00  WARN 15124 --- [coffee-shop-backend] [    Test worker] c.c.backend.worker.BatchOrchestrator     : Item 452793c3-911f-45cb-8a71-409c91e09807 failed on attempt 0: boom
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
