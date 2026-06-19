@@ -1,0 +1,265 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes. Error detail: AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:44), pid=36544, tid=47716
+#
+# JRE version:  (21.0.8) (build )
+# Java VM: OpenJDK 64-Bit Server VM (21.0.8+-14018985-b1038.68, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dorg.gradle.internal.worker.tmpdir=C:\Users\sahma\d_systems\coffee_shop\backend\build\tmp\test\work -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 2'
+
+Host: 13th Gen Intel(R) Core(TM) i5-13420H, 12 cores, 15G,  Windows 11 , 64 bit Build 26100 (10.0.26100.8521)
+Time: Tue Jun 16 04:51:20 2026 SE Asia Standard Time elapsed time: 1.088693 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002a239c50140):  JavaThread "Unknown thread" [_thread_in_vm, id=47716, stack(0x000000e6f2c00000,0x000000e6f2d00000) (1024K)]
+
+Stack: [0x000000e6f2c00000,0x000000e6f2d00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6d68d9]
+V  [jvm.dll+0x866693]
+V  [jvm.dll+0x868c4e]
+V  [jvm.dll+0x869333]
+V  [jvm.dll+0x280566]
+V  [jvm.dll+0xbaf47]
+V  [jvm.dll+0x328b85]
+V  [jvm.dll+0x82e0cd]
+V  [jvm.dll+0x3bf5c8]
+V  [jvm.dll+0x817388]
+V  [jvm.dll+0x453b6e]
+V  [jvm.dll+0x4552d1]
+C  [jli.dll+0x52ab]
+C  [ucrtbase.dll+0x2cd30]
+C  [KERNEL32.DLL+0x2e957]
+C  [ntdll.dll+0x87c1c]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff990e5b988, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+
+=>0x000002a239c50140 (exited) JavaThread "Unknown thread"    [_thread_in_vm, id=47716, stack(0x000000e6f2c00000,0x000000e6f2d00000) (1024K)]
+Total: 1
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000000000000, size: 0 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.018 Loaded shared library C:\Program Files\Android\Android Studio\jbr\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff77b9a0000 - 0x00007ff77b9aa000 	C:\Program Files\Android\Android Studio\jbr\bin\java.exe
+0x00007ffa281e0000 - 0x00007ffa28446000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffa26b50000 - 0x00007ffa26c19000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffa256e0000 - 0x00007ffa25ada000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffa25c80000 - 0x00007ffa25dcc000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffa0f350000 - 0x00007ffa0f36b000 	C:\Program Files\Android\Android Studio\jbr\bin\VCRUNTIME140.dll
+0x00007ff9ea570000 - 0x00007ff9ea588000 	C:\Program Files\Android\Android Studio\jbr\bin\jli.dll
+0x00007ffa26100000 - 0x00007ffa262c7000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffa25ae0000 - 0x00007ffa25b07000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffa07cd0000 - 0x00007ffa07f62000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8521_none_3e08b75ce33403b3\COMCTL32.dll
+0x00007ffa270b0000 - 0x00007ffa270db000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffa26ec0000 - 0x00007ffa26f69000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffa255b0000 - 0x00007ffa256db000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffa25500000 - 0x00007ffa255a3000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffa265e0000 - 0x00007ffa26612000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffa0f330000 - 0x00007ffa0f33c000 	C:\Program Files\Android\Android Studio\jbr\bin\vcruntime140_1.dll
+0x00007ff9b3b20000 - 0x00007ff9b3bad000 	C:\Program Files\Android\Android Studio\jbr\bin\msvcp140.dll
+0x00007ff990310000 - 0x00007ff990fa6000 	C:\Program Files\Android\Android Studio\jbr\bin\server\jvm.dll
+0x00007ffa26e00000 - 0x00007ffa26eb6000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffa27000000 - 0x00007ffa270aa000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffa267c0000 - 0x00007ffa268d8000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffa25f50000 - 0x00007ffa25fd0000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffa1d300000 - 0x00007ffa1d336000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffa252d0000 - 0x00007ffa2532e000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ffa1a7d0000 - 0x00007ffa1a7db000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffa252b0000 - 0x00007ffa252c4000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ffa241c0000 - 0x00007ffa241db000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffa0f310000 - 0x00007ffa0f31a000 	C:\Program Files\Android\Android Studio\jbr\bin\jimage.dll
+0x00007ffa22b30000 - 0x00007ffa22d72000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffa27980000 - 0x00007ffa27d03000 	C:\WINDOWS\System32\combase.dll
+0x00007ffa268e0000 - 0x00007ffa269b9000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff9f9210000 - 0x00007ff9f924b000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffa25b10000 - 0x00007ffa25bb8000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff9ef4c0000 - 0x00007ff9ef4e0000 	C:\Program Files\Android\Android Studio\jbr\bin\java.dll
+
+JVMTI agents: none
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Android\Android Studio\jbr\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8521_none_3e08b75ce33403b3;C:\Program Files\Android\Android Studio\jbr\bin\server
+
+VM Arguments:
+jvm_args: -Dorg.gradle.internal.worker.tmpdir=C:\Users\sahma\d_systems\coffee_shop\backend\build\tmp\test\work -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant -ea 
+java_command: worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 2'
+java_class_path (initial): C:\\Users\\sahma\\.gradle\\caches\\9.5.1\\workerMain\\gradle-worker.jar;C:\\Users\\sahma\\d_systems\\coffee_shop\\backend\\build\\classes\\java\\test;C:\\Users\\sahma\\d_systems\\coffee_shop\\backend\\build\\classes\\java\\main;C:\\Users\\sahma\\d_systems\\coffee_shop\\backend\\build\\resources\\main;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-web\\3.4.0\\5447a62dc3dee3eadf2def23314e0db4c81bb3\\spring-boot-starter-web-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-validation\\3.4.0\\580aad0cdaf9d9f862e9703a612db95846055843\\spring-boot-starter-validation-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-jdbc\\3.4.0\\8e24eb3bee1a26a5b0ef58ad677ac3f6bf58a4ea\\spring-boot-starter-jdbc-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-actuator\\3.4.0\\2e39cbf0cee18200204fe31e33ea2a1202391e9d\\spring-boot-starter-actuator-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.flywaydb\\flyway-database-postgresql\\10.20.1\\6072b9a325858f57c7b88b96f6ee2aacae16ffaa\\flyway-database-postgresql-10.20.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.flywaydb\\flyway-core\\10.20.1\\27c35cad285433947ef986c615ce2742f69145de\\flyway-core-10.20.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.postgresql\\postgresql\\42.7.4\\264310fd7b2cd76738787dc0b9f7ea2e3b11adc1\\postgresql-42.7.4.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-test\\3.4.0\\c96000757d3197eb9735a41a47b88281448e2599\\spring-boot-starter-test-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter\\5.11.3\\992ed024f7cef51ef8dfb3f6828c2f8917cc9640\\junit-jupiter-5.11.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter-engine\\5.11.3\\78392fae7f493f92618b837610c2915d0528b4fa\\junit-jupiter-engine-5.11.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-engine\\1.11.3\\b2b5f1af958609110c1f4ce055b9050fec77fbda\\junit-platform-engine-1.11.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.mockito\\mockito-junit-jupiter\\5.14.2\\3cfc377d4bb9fe729f3dd9098d9a9b27da58324a\\mockito-junit-jupiter-5.14.2.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter-params\\5.11.3\\a54ff747e4ad98b1d49ee1e73f502def701516b5\\junit-jupiter-params-5.11.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter-api\\5.11.3\\89b1b4f707e19ed1c594c2d782987a6954226aec\\junit-jupiter-api-5.11.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-commons\\1.11.3\\71eaa12ce1322069c712d1d557a5e95324a8a84c\\junit-platform-commons-1.11.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-launcher\\1.11.3\\a49b9aa3ddd206121b643ba556bc3420129c47d\\junit-platform-launcher-1.11.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-json\\3.4.0\\b817379dd7629234dbacd52a7d5a6b11f95d8d67\\spring-boot-starter-json-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter\\3.4.0\\81b6241291e468e5654a4df26ee8fb35c2879bbc\\spring-boot-starter-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-tomcat\\3.4.0\\90a4cb855aa6fab8da0a3831d8fff5e5a9093d6a\\spring-boot-starter-tomcat-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-webmvc\\6.2.0\\2eddfeb4d7a12b1ed301bc07abc7e73bca94c2e9\\spring-webmvc-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-web\\6.2.0\\e1b702476fe83b2354baf88b8179f71c53fbbfae\\spring-web-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.tomcat.embed\\tomcat-embed-el\\10.1.33\\6cdf9afcb8577309fae1181e0a5f2f8cff559d97\\tomcat-embed-el-10.1.33.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.hibernate.validator\\hibernate-validator\\8.0.1.Final\\e49e116b3d3928060599b176b3538bb848718e95\\hibernate-validator-8.0.1.Final.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.zaxxer\\HikariCP\\5.1.0\\8c96e36c14461fc436bb02b264b96ef3ca5dca8c\\HikariCP-5.1.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-jdbc\\6.2.0\\3907c5ca693671d164fbb056e40146a80c1c39ee\\spring-jdbc-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-actuator-autoconfigure\\3.4.0\\d2e76a2828f41064ec5a7020844c12319de8bd93\\spring-boot-actuator-autoconfigure-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\io.micrometer\\micrometer-jakarta9\\1.14.1\\67da7ae0c8da78a97062f3169e31b3b634c1cd78\\micrometer-jakarta9-1.14.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-test-autoconfigure\\3.4.0\\4dc5a0cb4856c748221b4300bc83496146be7df9\\spring-boot-test-autoconfigure-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-test\\3.4.0\\708b911f4cd12d6fc6da56ef24156a96f79ba005\\spring-boot-test-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-autoconfigure\\3.4.0\\2cf78b01be25952c96cb8ee60b4b0562b3a136f2\\spring-boot-autoconfigure-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-actuator\\3.4.0\\29f94e4ea6df48fd0ba5e5523ccbb44b1730757\\spring-boot-actuator-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot\\3.4.0\\cbc6c54cc6958a5e24872025e0d6ff0c87ed3594\\spring-boot-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-context\\6.2.0\\c08dc2bbbe833de7ceda56e8b8bbcc7014413a2a\\spring-context-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\io.micrometer\\micrometer-core\\1.14.1\\a0a96755baff09a8f87e16e974920b42fbaa9d59\\micrometer-core-1.14.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\io.micrometer\\micrometer-observation\\1.14.1\\db326347a09c9c18b4149aae98b38d280cafdeb9\\micrometer-observation-1.14.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.datatype\\jackson-datatype-jsr310\\2.18.1\\36e49c07197395164d50df4b8ed17f5fc05430f0\\jackson-datatype-jsr310-2.18.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.datatype\\jackson-datatype-jdk8\\2.18.1\\944810b96bfe1d149ecdafb1228537610e14367a\\jackson-datatype-jdk8-2.18.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.module\\jackson-module-parameter-names\\2.18.1\\202b447a91d5466433f91690f9414dd466dcbc2b\\jackson-module-parameter-names-2.18.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.core\\jackson-databind\\2.18.1\\66547d0c6c2f9e022019499308f09bebbf30ab2e\\jackson-databind-2.18.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.core\\jackson-core\\2.18.1\\9e2284c539e2dedd2aa1487c781e20a0f575d695\\jackson-core-2.18.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.core\\jackson-annotations\\2.18.1\\8f9aa97e7fb44d4bea829061625472b0f6199923\\jackson-annotations-2.18.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.dataformat\\jackson-dataformat-toml\\2.18.1\\33139517e6dd7089c610cb9f4c2100e7cfb9790b\\jackson-dataformat-toml-2.18.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.checkerframework\\checker-qual\\3.42.0\\638ec33f363a94d41a4f03c3e7d3dcfba64e402d\\checker-qual-3.42.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.jayway.jsonpath\\json-path\\2.9.0\\37fe2217f577b0b68b18e62c4d17a8858ecf9b69\\json-path-2.9.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\jakarta.xml.bind\\jakarta.xml.bind-api\\4.0.2\\6cd5a999b834b63238005b7144136379dc36cad2\\jakarta.xml.bind-api-4.0.2.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\net.minidev\\json-smart\\2.5.1\\4c11d2808d009132dfbbf947ebf37de6bf266c8e\\json-smart-2.5.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.assertj\\assertj-core\\3.26.3\\d26263eb7524252d98e602fc6942996a3195e29\\assertj-core-3.26.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.awaitility\\awaitility\\4.2.2\\7336242073ebf83fe034e42b46a403c5501b63c9\\awaitility-4.2.2.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.hamcrest\\hamcrest\\2.2\\1820c0968dba3a11a1b30669bb1f01978a91dedc\\hamcrest-2.2.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.mockito\\mockito-core\\5.14.2\\f7bf936008d7664e2002c3faf0c02071c8d10e7c\\mockito-core-5.14.2.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.skyscreamer\\jsonassert\\1.5.3\\aaa43e0823d2a0e106e8754d6a9c4ab24e05e9bc\\jsonassert-1.5.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-test\\6.2.0\\b18c80e3c6c253ba9ba5d4487efa4e951f1d89db\\spring-test-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-aop\\6.2.0\\999012dfb56640f7babdf4f6c55b3f59c1596f3f\\spring-aop-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-tx\\6.2.0\\940031e305c992e11d52cb3e75fb71f71bf5a19d\\spring-tx-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-beans\\6.2.0\\972694ca3c2f44d64d55429dfcc6ca2dfa9fddf\\spring-beans-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-expression\\6.2.0\\7e92dcd147157641446081db281e9437d8f4dcd\\spring-expression-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-core\\6.2.0\\b0d65768b9f99204857dc9a5548443c04ba61c79\\spring-core-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.xmlunit\\xmlunit-core\\2.10.0\\1355088731b4ec2107ff7f319f0d7445d916bab\\xmlunit-core-2.10.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot-starter-logging\\3.4.0\\10d953f63139bf05ca8bee79272aadac745e297e\\spring-boot-starter-logging-3.4.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\jakarta.annotation\\jakarta.annotation-api\\2.1.1\\48b9bda22b091b1f48b13af03fe36db3be6e1ae3\\jakarta.annotation-api-2.1.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.yaml\\snakeyaml\\2.3\\936b36210e27320f920536f695cf1af210c44586\\snakeyaml-2.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.tomcat.embed\\tomcat-embed-websocket\\10.1.33\\67feeb848bf741029ed7a0fe91bcae515e7b1c25\\tomcat-embed-websocket-10.1.33.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.tomcat.embed\\tomcat-embed-core\\10.1.33\\d4d10b953164db057e4a803506e4552731e5a6a0\\tomcat-embed-core-10.1.33.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\jakarta.validation\\jakarta.validation-api\\3.0.2\\92b6631659ba35ca09e44874d3eb936edfeee532\\jakarta.validation-api-3.0.2.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.jboss.logging\\jboss-logging\\3.6.1.Final\\886afbb445b4016a37c8960a7aef6ebd769ce7e5\\jboss-logging-3.6.1.Final.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml\\classmate\\1.7.0\\e98374da1f2143ac8e6e0a95036994bb19137a3\\classmate-1.7.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\ch.qos.logback\\logback-classic\\1.5.12\\3790d1a62e868f7915776dfb392bd9a29ce8d954\\logback-classic-1.5.12.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.logging.log4j\\log4j-to-slf4j\\2.24.1\\fc8228007ccbf3bcdd9c6045de2c20bd03dbcf6e\\log4j-to-slf4j-2.24.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.slf4j\\jul-to-slf4j\\2.0.16\\6d57da3e961daac65bcca0dd3def6cd11e48a24a\\jul-to-slf4j-2.0.16.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.slf4j\\slf4j-api\\2.0.16\\172931663a09a1fa515567af5fbef00897d3c04\\slf4j-api-2.0.16.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\io.micrometer\\micrometer-commons\\1.14.1\\b7cf441e6c9de70794b09086751a8ec0e311d47e\\micrometer-commons-1.14.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\jakarta.activation\\jakarta.activation-api\\2.1.3\\fa165bd70cda600368eee31555222776a46b881f\\jakarta.activation-api-2.1.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\net.minidev\\accessors-smart\\2.5.1\\19b820261eb2e7de7d5bde11d1c06e4501dd7e5f\\accessors-smart-2.5.1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\net.bytebuddy\\byte-buddy\\1.15.10\\635c873fadd853c084f84fdc3cbd58c5dd8537f9\\byte-buddy-1.15.10.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\net.bytebuddy\\byte-buddy-agent\\1.15.10\\e8eb255b2c378b9a6c7341e7b0e12f0a5636377\\byte-buddy-agent-1.15.10.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.objenesis\\objenesis\\3.3\\1049c09f1de4331e8193e579448d0916d75b7631\\objenesis-3.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\com.vaadin.external.google\\android-json\\0.0.20131108.vaadin1\\fa26d351fe62a6a17f5cda1287c1c6110dec413f\\android-json-0.0.20131108.vaadin1.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-jcl\\6.2.0\\2b8e7bb1e751bf585e7db6de1d375c599e0c8cf5\\spring-jcl-6.2.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.opentest4j\\opentest4j\\1.3.0\\152ea56b3a72f655d4fd677fc0ef2596c3dd5e6e\\opentest4j-1.3.0.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.hdrhistogram\\HdrHistogram\\2.2.2\\7959933ebcc0f05b2eaa5af0a0c8689fa257b15c\\HdrHistogram-2.2.2.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.latencyutils\\LatencyUtils\\2.0.3\\769c0b82cb2421c8256300e907298a9410a2a3d3\\LatencyUtils-2.0.3.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.6\\aa205cf0a06dbd8e04ece91c0b37c3f5d567546a\\asm-9.6.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\ch.qos.logback\\logback-core\\1.5.12\\65b1fa25fe8d8e4bdc140e79eb67ac6741f775e2\\logback-core-1.5.12.jar;C:\\Users\\sahma\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.logging.log4j\\log4j-api\\2.24.1\\7ebeb12c20606373005af4232cd0ecca72613dda\\log4j-api-2.24.1.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 264241152                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 536870912                                 {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 536870912                              {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Android\Android Studio\jbr
+PATH=c:\Users\sahma\AppData\Local\Programs\cursor\resources\app\resources\helpers;C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\nodejs\;C:\Gradle\gradle-8.5\bin;C:\Users\sahma\AppData\Local\Microsoft\WindowsApps;C:\Users\sahma\AppData\Roaming\npm;C:\Program Files (x86)\Nmap;C:\Users\sahma\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts;C:\Users\sahma\AppData\Local\Programs\cursor\resources\app\bin;C:\Gradle\gradle-8.5\bin;C:\Users\sahma\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.1-full_build\bin;C:\Users\sahma\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=sahma
+TERM=dumb
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+TMP=C:\Users\sahma\AppData\Local\Temp
+TEMP=C:\Users\sahma\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 0, weak refs: 0
+
+JNI global refs memory usage: 0, weak refs: 0
+
+Process memory usage:
+Resident Set Size: 11752K (0% of 16462712K total physical memory with 367508K free physical memory)
+
+OOME stack traces (most recent first):
+Classloader memory used:
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.8521)
+OS uptime: 2 days 19:05 hours
+Hyper-V role detected
+
+CPU: total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 186 stepping 2 microcode 0x4123, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, clwb, hv, serialize, rdtscp, rdpid, fsrm, f16c, cet_ibt, cet_ss
+Processor Information for processor 0
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 1
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 2
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 3
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 4
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 5
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 6
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 7
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 8
+  Max Mhz: 2100, Current Mhz: 1500, Mhz Limit: 1491
+Processor Information for processor 9
+  Max Mhz: 2100, Current Mhz: 1500, Mhz Limit: 1491
+Processor Information for processor 10
+  Max Mhz: 2100, Current Mhz: 1500, Mhz Limit: 1491
+Processor Information for processor 11
+  Max Mhz: 2100, Current Mhz: 1500, Mhz Limit: 1491
+
+Memory: 4k page, system-wide physical 16076M (359M free)
+TotalPageFile size 65228M (AvailPageFile size 0M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 17M, peak: 18M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.8+-14018985-b1038.68) for windows-amd64 JRE (21.0.8+-14018985-b1038.68), built on 2025-08-29T19:56:34Z by "builder" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
